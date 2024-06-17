@@ -60,7 +60,7 @@ function Bot() {
       </aside>
       <div className="flex flex-col flex-grow">
         <header className="bg-gray-600 text-white text-center p-4">
-          <h1 className="text-2xl">BELL.AI powered by Gemini</h1>
+          <h1 className="text-2xl">BELL.AI <span className='text-sm'>Powered by Gemini</span></h1>
         </header>
         <main className="flex flex-col flex-grow overflow-hidden bg-gray-300">
           <div className="flex-grow overflow-y-auto p-4">
