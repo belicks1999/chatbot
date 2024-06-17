@@ -1,6 +1,7 @@
 // src/App.js
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import ReactMarkdown from 'react-markdown';
 
 function Bot() {
   const [message, setMessage] = useState('');
@@ -62,7 +63,7 @@ function Bot() {
             {chat.map((msg, index) => (
               <div key={index} className={`flex my-2 ${msg.user === 'me' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`max-w-xl p-4 rounded-lg shadow ${msg.user === 'me' ? 'bg-blue-500 text-white' : 'bg-white text-black'}`} style={{ wordBreak: 'break-word' }}>
-                  <div>{msg.message}</div>
+                <ReactMarkdown className="markdown-body" children={msg.message} />
                   <div className="text-xs text-right mt-1">{msg.timestamp}</div>
                 </div>
               </div>
@@ -104,6 +105,17 @@ function Bot() {
           to {
             transform: rotate(360deg);
           }
+        }
+
+      
+        .markdown-body pre {
+          white-space: pre-wrap;
+          word-wrap: break-word;
+        }
+
+        .markdown-body code {
+          white-space: pre-wrap;
+          word-wrap: break-word;
         }
       `}</style>
       </div>
