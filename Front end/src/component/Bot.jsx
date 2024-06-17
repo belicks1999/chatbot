@@ -38,17 +38,21 @@ function Bot() {
     <div className="flex h-screen">
       <aside className="w-1/4 bg-gray-800 text-white p-4 flex flex-col">
         <div className="mb-4">
-          <h2 className="text-2xl mb-2 text-center">ChatBot Info</h2>
+          <h2 className="text-2xl mb-2 text-center">BELL.AI Info</h2>
           <p className='text-justify'>Welcome to the BELL.AI Chatbot powered by Gemini AI. You can ask questions or have a conversation with the bot. Your messages will get Accurate answer from chatbot. Enjoy Chatting.</p>
         </div>
         <div className="flex-grow">
           {loading ? (
-            <div className="flex items-center justify-center h-full">
+            <div className="flex items-center justify-center h-full text-2xl">
               <div className="loader my-3 mr-4"></div> 
               <div >Loading...</div>
             </div>
-          ) : (
-            <div className="flex items-center justify-center h-full">
+          ) : message ? (
+            <div className="flex flex-col items-center justify-center h-full text-2xl ">
+              <div>Typing...</div>
+            </div>
+          ) :(
+            <div className="flex items-center justify-center h-full text-2xl">
               <div>Start Chatting...</div>
             </div>
           )}

@@ -2,8 +2,17 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import dotenv from 'dotenv';
 
-const genai = new GoogleGenerativeAI("AIzaSyBTaNQFSzrcGJGGtgqUfoMXi7FUvun8ClU");
+
+dotenv.config();
+const API = process.env.API_KEY;
+
+
+
+
+const genai = new GoogleGenerativeAI(API);
+
 
 const model = genai.getGenerativeModel({
 
@@ -28,7 +37,6 @@ app.post ('/chat', async(req, res) => {
         const { message } = req.body;
         const result= await model.generateContent(message);
         const ans = result.response.text();
-        console.log(ans);
         res.status(201).json({ response: ans });
         
     } catch (error) {
